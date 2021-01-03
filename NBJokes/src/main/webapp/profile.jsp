@@ -15,7 +15,7 @@
 	  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    	<div class="navbar-nav">
 		      	<div class="nav-item active" >
-			        <a class="nav-link" href="#" style="font-family: Montserrat, sans-serif; font-size: 1.5em;margin-top: -0.3em;font-weight: 800;color: rgba(0, 0, 0, 1);text-transform: none;font-style: normal;text-decoration: none;line-height: 1.4em;letter-spacing: 0px;text-shadow: 0px 0px 0px rgba(0, 0, 0, 1);}">NBJokes<span class="sr-only">(current)</span>
+			        <a class="nav-link" href="http://localhost:8080/NBJokes/jokes.jsp" style="font-family: Montserrat, sans-serif; font-size: 1.5em;margin-top: -0.3em;font-weight: 800;color: rgba(0, 0, 0, 1);text-transform: none;font-style: normal;text-decoration: none;line-height: 1.4em;letter-spacing: 0px;text-shadow: 0px 0px 0px rgba(0, 0, 0, 1);}">NBJokes<span class="sr-only">(current)</span>
 					</a>
 		      	</div>
 	  		</div>
@@ -28,7 +28,9 @@
 		    			<a class="dropdown-item" href="#">Settings</a>
 		    			<a class="dropdown-item" href="#">About us</a>
 		    			<a class="dropdown-item" href="#">Help</a>
-		    			<a class="dropdown-item" href="#">Log out</a>
+		    			<form action="logOut" method="post">
+		    			<button class="dropdown-item" type="submit" >Log out</button>
+		  			     </form>
 		  			</ul>
 				</div>
 			</div>

@@ -20,7 +20,7 @@
 	  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    	<ul class="navbar-nav mr-auto">
 	      		<li class="nav-item active" >
-	        	<a class="nav-link" href="http://localhost:8080/NBJokes/signup.jsp" 
+	        	<a class="nav-link" href="http://localhost:8080/NBJokes/login.jsp" 
 	        	style="font-family: Montserrat, sans-serif; font-size: 1.5em;margin-top: -0.3em;font-weight: 800;
 	        	color: rgba(0, 0, 0, 1);text-transform: none;font-style: normal;text-decoration: none;line-height: 1.4em;
 	        	letter-spacing: 0px;text-shadow: 0px 0px 0px rgba(0, 0, 0, 1);}">

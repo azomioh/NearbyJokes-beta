@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 	
@@ -20,7 +21,7 @@ background-image: linear-gradient(315deg, #eec0c6 0%, #e58c8a 74%);
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    	<div class="navbar-nav">
 				<div class="nav-item active" >
-		        	<a class="nav-link" href="#" style="font-family: Montserrat, sans-serif; font-size: 1.5em;margin-top: -0.3em;font-weight: 800;color: rgba(0, 0, 0, 1);text-transform: none;font-style: normal;text-decoration: none;line-height: 1.4em;letter-spacing: 0px;text-shadow: 0px 0px 0px rgba(0, 0, 0, 1);}">NBJokes<span class="sr-only">(current)</span>
+		        	<a class="nav-link" href="http://localhost:8080/NBJokes/jokes.jsp" style="font-family: Montserrat, sans-serif; font-size: 1.5em;margin-top: -0.3em;font-weight: 800;color: rgba(0, 0, 0, 1);text-transform: none;font-style: normal;text-decoration: none;line-height: 1.4em;letter-spacing: 0px;text-shadow: 0px 0px 0px rgba(0, 0, 0, 1);}">NBJokes<span class="sr-only">(current)</span>
 					</a>
 	      		</div>
 	      		<div>
@@ -38,17 +39,20 @@ background-image: linear-gradient(315deg, #eec0c6 0%, #e58c8a 74%);
     					<i class="fas fa-user"></i>
   					</button>
 	  				<ul class="dropdown-menu dropdown-menu-right">
-		  				<a href ="http://localhost:8080/NBJokes/profile.jsp" class="dropdown-item" href="#">Profile</a>
+		  				<form action="profile.jsp" >
+		    			<button class="dropdown-item" type="submit" >Profile</button>
+		  			     </form>
 		    			<a class="dropdown-item" href="#">Settings</a>
 		    			<a class="dropdown-item" href="#">About us</a>
 		    			<a class="dropdown-item" href="#">Help</a>
-		    			<a class="dropdown-item" href="#">Log out</a>
+		    			<form action="logOut" method="post">
+		    			<button class="dropdown-item" type="submit" >Log out</button>
+		  			     </form>
 	  				</ul>
 				</div>
 			</div>
 	  	</div>
 	</nav>
-
 	<br>
 	<div class="container">
 		<div class="jumbotron">
@@ -84,6 +88,8 @@ try {
 		
 		String email = (String) session.getAttribute("email");
 		System.out.println("your email is "+ email);
+		session.setAttribute("email", email);
+
 		
 		ResultSet res1=stm.executeQuery("SELECT city FROM jeeproject_db.user WHERE email='"+email+"';");
 		res1.next();
