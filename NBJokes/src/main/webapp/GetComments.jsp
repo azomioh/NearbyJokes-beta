@@ -152,14 +152,14 @@ try {			System.out.println("ENTRING THE SHOW COMMENT LOOP");
 		
 		System.out.println("GETTING A COMMENT");
 
-		ResultSet res=stm.executeQuery("SELECT  C.contenu,nbr_love,C.date FROM jeeproject_db.commentaire C,jeeproject_db.post P where C.post_id='"+post_id+"' and P.post_id='"+post_id+"' order by C.date desc" + 
+		ResultSet res=stm.executeQuery("SELECT  C.contenu,nbr_love,C.date,C.comment_id FROM jeeproject_db.commentaire C,jeeproject_db.post P where C.post_id='"+post_id+"' and P.post_id='"+post_id+"' order by C.date desc" + 
 				"");
 		while(res.next()) {
 		String contenu_comment=res.getString(1);
 		System.out.println(contenu_comment);
 		String nbr_love=res.getString(2);
 		String date = res.getString(3);
-		
+		String comment_id = res.getString("comment_id");
 		System.out.println("SHOWING THE COMMENT");
 
 		
@@ -173,7 +173,7 @@ try {			System.out.println("ENTRING THE SHOW COMMENT LOOP");
 			</div>
 
 			<div class="row mr-1">
-				<a style="color: #FFFFFF;" href="http://localhost:8080/NBJokes/LoveComment?redirect=GetComments?id="+post_id>
+				<a style="color: #FFFFFF;" href="http://localhost:8080/NBJokes/LoveComment?post_id=<%= id%>&comment_id=<%= comment_id%>">
 		    	<button type="button" class="btn btn-secondary mr-1" style=" margin: auto; ">
 		    		love <i class="far fa-heart"> <%= nbr_love%> </i>  
 		    	</button>

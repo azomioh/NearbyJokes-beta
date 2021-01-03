@@ -35,16 +35,11 @@ public class LoveComment extends HttpServlet {
 	protected void doGet(HttpServletRequest Req, HttpServletResponse Res) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		  
-	
-	}
 
-	
-	protected void doPost(HttpServletRequest Req, HttpServletResponse Res) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+		System.out.print("Lovecomment was called Hoooooooooooooooooooooooooo");
 		 int comment_id = Integer.parseInt(Req.getParameter("comment_id"));
 
-
+			
 	     try {
 	    	   Class.forName("com.mysql.cj.jdbc.Driver");
 				String url="jdbc:mysql://127.0.0.1:3306/jeeproject_db?autoReconnect=true&serverTimezone=UTC&useSSL=False&allowPublicKeyRetrieval=true";
@@ -54,23 +49,23 @@ public class LoveComment extends HttpServlet {
 				Statement stm= conn.createStatement();
 				
 				
-				ResultSet j=stm.executeQuery("SELECT nbr_love FROM jeeproject_db.comment WHERE comment_id ='"+comment_id+"'");
-				
+				ResultSet j=stm.executeQuery("SELECT nbr_love FROM jeeproject_db.commentaire WHERE comment_id ='"+comment_id+"'");
+				j.next();
 				int old_nbr_love= Integer.parseInt(j.getString(1));				
 
 				/* --- */
-				PreparedStatement stmt=conn.prepareStatement("UPDATE jeeproject_db.comment SET nbr_love ='?' WHERE comment_id='?' ");
+				PreparedStatement stmt=conn.prepareStatement("UPDATE jeeproject_db.commentaire SET nbr_love =? WHERE comment_id=? ");
 				
 				stmt.setInt(1,old_nbr_love +1);
 				stmt.setInt(2,comment_id); 
 
 
 				int i=stmt.executeUpdate(); 
-				String redirect= (String) Req.getAttribute("redirect");
 				HttpSession session = Req.getSession();
 	        	session.setAttribute("message", "You liked the post");
-	        
-				Req.getRequestDispatcher("/"+redirect).forward(Req,Res);
+	    		String post_id=   session.getAttribute("post_id").toString();
+	        	String temp =  "/GetComments.jsp?id="+post_id+"";
+				Req.getRequestDispatcher(temp).forward(Req,Res);
 
 	     }catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
@@ -85,6 +80,12 @@ public class LoveComment extends HttpServlet {
 		 
 
 		
+	
+	}
+
+	
+	protected void doPost(HttpServletRequest Req, HttpServletResponse Res) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 	}
 
 }

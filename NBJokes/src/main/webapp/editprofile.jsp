@@ -90,7 +90,7 @@
 
 				 	<p>
 				  	<label for="password1">Old Password</label>
-				    <input type=password name="password0" id="password0" class="form-control" minlength="8" maxlength="20" required >
+				    <input required  type=password name="password0" id="password0" class="form-control" minlength="8" maxlength="20" required >
 
 				  	<p>
 				  	<label for="password1">New Password</label>
