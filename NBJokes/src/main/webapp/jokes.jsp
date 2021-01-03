@@ -45,7 +45,7 @@ background-image: linear-gradient(315deg, #eec0c6 0%, #e58c8a 74%);
 		    			<a class="dropdown-item" href="#">Settings</a>
 		    			<a class="dropdown-item" href="#">About us</a>
 		    			<a class="dropdown-item" href="#">Help</a>
-		    			<form action="logOut" method="post">
+		    			<form action="Logout" method="post">
 		    			<button class="dropdown-item" type="submit" >Log out</button>
 		  			     </form>
 	  				</ul>
@@ -96,7 +96,7 @@ try {
 	    String city = res1.getString("city");
 	    System.out.println("first query successfully executed, the city is :"+city);
 	    
-		ResultSet res=stm.executeQuery("SELECT firstname,lastname,contenu,nbr_like,nbr_dislike,post_id FROM jeeproject_db.post , jeeproject_db.user\r\n" + 
+		ResultSet res=stm.executeQuery("SELECT firstname,lastname,contenu,nbr_like,nbr_dislike,post_id,date FROM jeeproject_db.post , jeeproject_db.user\r\n" + 
 				"where localisation='"+city+"' and auteur=email order by date desc;\r\n" + 
 				"");
 		
@@ -108,6 +108,7 @@ try {
 		String contenu=res.getString("contenu");
 		int voteUp=Integer.parseInt(res.getString("nbr_like"));
 		int voteDown=Integer.parseInt(res.getString("nbr_dislike"));
+		String date = res.getString("date");
 		int post_id=Integer.parseInt(res.getString("post_id"));
 		listIds.add(post_id);
 		int id=listIds.get(i);
@@ -144,10 +145,14 @@ try {
 							vote <i class="fas fa-arrow-alt-circle-down"><%= voteDown%></i>
 						</button>
 						<a style="color: #FFFFFF;" href="http://localhost:8080/NBJokes/GetComments.jsp?id=<%=id%>">
-							<button type="button" class="btn btn-secondary">
+							<button type="button" class="btn btn-secondary mr-1">
 							 comments 
 							<i class="fas fa-comments"><%= comments_count%> </i>
 							</button>
+						<a style="color: #FFFFFF;">
+							<button type="button" class="btn btn-secondary">
+							<small> <%= date%></small>
+							</button><i></i>
 						</a> 
 				  	</div>
 				</div>
