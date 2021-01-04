@@ -75,11 +75,14 @@ public class RecordPost extends HttpServlet {
 				
 				
 				Statement stm2= conn.createStatement();
-				ResultSet j=stm2.executeQuery("SELECT Max(post_id) FROM jeeproject_db.post \r\n" + 
-						"");
-				j.next();
-				int Old_post=Integer.parseInt(j.getString(1));
-				int post_id= Old_post+1;
+				ResultSet j=stm2.executeQuery("SELECT Max(post_id) FROM jeeproject_db.post");
+				int Old_post_id;
+				if(j.next()) {
+					Old_post_id=Integer.parseInt(j.getString(1));
+				}else {
+					Old_post_id = 1;
+				}
+				int post_id= Old_post_id+1;
 				
 
 				int i=stm2.executeUpdate("INSERT INTO jeeproject_db.post ()  VALUES ('"+post_id+"','"+email+"','"+contenu+"','"+date+"',0, 0,0, '"+city+"')");

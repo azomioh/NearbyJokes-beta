@@ -79,7 +79,7 @@
 				  	</div>
 
 				  	<div class="form-row">
-				    	<div class="col-md-6 mb-3">
+				    	<div class="col-md-6 mb-6">
 				     	 	<label for="validationDefault07">Email Adress</label>
 				     	 	<input name="email" type="email" class="form-control" id="validationDefault01" value="" required>
 				     	 	<small id="emailHelp" class="form-text text-muted">

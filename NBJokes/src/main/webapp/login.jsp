@@ -43,7 +43,7 @@
 			  <div class="container-sm">
 			  <form action="Login" method="post">
 				  <div class="form-group">
-				    <label for="exampleInputEmail1" >Pseudo</label>
+				    <label for="exampleInputEmail1" >Email</label>
 				    <input name="email" type="email" class="form-control"  id="exampleInputEmail1" aria-describedby="emailHelp">
 				  </div>
 				  <div class="form-group">

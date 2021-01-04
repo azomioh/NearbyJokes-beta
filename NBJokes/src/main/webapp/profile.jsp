@@ -102,7 +102,7 @@ try {
 				  	<div class="form-row">
 				    	<div class="col-md-6 mb-3">
 				     	 	<label for="validationDefault07"></label>
-				     	 	<input name="email" value="<%= email%>" readonly="readonly"  type="email" class="form-control" id="validationDefault01" value="" required>
+				     	 	<input name="email" value="<%= email%>" readonly="readonly"  type="email" class="form-control" id="validationDefault01" required>
 				     	 	<small id="emailHelp" class="form-text text-muted">
 				     	 		We'll never share your email with anyone else.
 				     	 	</small>
@@ -114,7 +114,7 @@ try {
 
 				 	<div class="text-center">
 				 		<a style="color: #FFFFFF " 
-				 			href="http://localhost:8080/NBJokes/editprofile.jsp?email="+email>
+				 			href="http://localhost:8080/NBJokes/editprofile.jsp?email="+<%= email%>>
 							<button type="button" style="width: 200px" class="btn btn-success ">
 							 Edit Profile 
 							</button>
